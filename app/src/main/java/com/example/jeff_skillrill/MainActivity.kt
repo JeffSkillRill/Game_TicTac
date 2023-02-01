@@ -31,9 +31,9 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     override fun onClick(p0: View?) {
         val img = findViewById<ImageView>(p0!!.id)
-        var t = img.tag.toString().toInt()
-        var col: Int = t / 3
-        var row: Int = t % 3
+        val t = img.tag.toString().toInt()
+        val col: Int = t / 3
+        val row: Int = t % 3
         if (matrix[col][row] == -1) {
             if (active) {
                 img.setImageResource(R.drawable.icon_x)
