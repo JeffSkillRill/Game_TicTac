@@ -12,8 +12,8 @@
 
     <ImageView
         android:id="@+id/playing_board"
-        android:layout_width="400dp"
-        android:layout_height="400dp"
+        android:layout_width="350dp"
+        android:layout_height="350dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -23,8 +23,8 @@
 
 
     <LinearLayout
-        android:layout_width="400dp"
-        android:layout_height="400dp"
+        android:layout_width="350dp"
+        android:layout_height="350dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -33,12 +33,12 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="130dp">
+            android:layout_height="115dp">
             <ImageView
                 android:id="@+id/img0"
                 android:tag="0"
-                android:layout_width="130dp"
-                android:layout_height="130dp"
+                android:layout_width="115dp"
+                android:layout_height="115dp"
                 android:paddingTop="30dp"
                 tools:src="@drawable/icon_0"
                 />
@@ -46,8 +46,8 @@
             <ImageView
                 android:id="@+id/img1"
                 android:tag="1"
-                android:layout_width="130dp"
-                android:layout_height="130dp"
+                android:layout_width="115dp"
+                android:layout_height="115dp"
                 android:paddingTop="30dp"
                 tools:src="@drawable/icon_0"
                 />
@@ -55,8 +55,8 @@
             <ImageView
                 android:id="@+id/img2"
                 android:tag="2"
-                android:layout_width="130dp"
-                android:layout_height="130dp"
+                android:layout_width="115dp"
+                android:layout_height="115dp"
                 android:paddingTop="30dp"
                 tools:src="@drawable/icon_0"
                 />
@@ -64,12 +64,12 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="130dp">
+            android:layout_height="115dp">
             <ImageView
                 android:id="@+id/img3"
                 android:tag="3"
-                android:layout_width="130dp"
-                android:layout_height="130dp"
+                android:layout_width="115dp"
+                android:layout_height="115dp"
                 android:paddingTop="30dp"
                 tools:src="@drawable/icon_0"
                 />
@@ -77,8 +77,8 @@
             <ImageView
                 android:id="@+id/img4"
                 android:tag="4"
-                android:layout_width="130dp"
-                android:layout_height="130dp"
+                android:layout_width="115dp"
+                android:layout_height="115dp"
                 android:paddingTop="30dp"
                 tools:src="@drawable/icon_0"
                 />
@@ -86,8 +86,8 @@
             <ImageView
                 android:id="@+id/img5"
                 android:tag="5"
-                android:layout_width="130dp"
-                android:layout_height="130dp"
+                android:layout_width="115dp"
+                android:layout_height="115dp"
                 android:paddingTop="30dp"
                 tools:src="@drawable/icon_0"
                 />
@@ -95,12 +95,12 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="130dp">
+            android:layout_height="115dp">
             <ImageView
                 android:id="@+id/img6"
                 android:tag="6"
-                android:layout_width="130dp"
-                android:layout_height="130dp"
+                android:layout_width="115dp"
+                android:layout_height="115dp"
                 android:paddingTop="30dp"
                 tools:src="@drawable/icon_0"
                 />
@@ -108,8 +108,8 @@
             <ImageView
                 android:id="@+id/img7"
                 android:tag="7"
-                android:layout_width="130dp"
-                android:layout_height="130dp"
+                android:layout_width="115dp"
+                android:layout_height="115dp"
                 android:paddingTop="30dp"
                 tools:src="@drawable/icon_0"
                 />
@@ -117,8 +117,8 @@
             <ImageView
                 android:id="@+id/img8"
                 android:tag="8"
-                android:layout_width="130dp"
-                android:layout_height="130dp"
+                android:layout_width="115dp"
+                android:layout_height="115dp"
                 android:paddingTop="30dp"
                 tools:src="@drawable/icon_0"
                 />
@@ -137,28 +137,42 @@
         app:layout_constraintBottom_toTopOf="@+id/playing_board"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Player 0"
+        android:textSize="45dp"
+        android:textColor="#6980FB"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        />
 
-    <Button
+    <TextView
         android:id="@+id/restart"
         android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:text="RESTART"
+        android:layout_height="50dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/button"
+        android:textAlignment="center"
+        android:textColor="#A50000"
+        android:textSize="35dp"
+        android:text="Restart"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/playing_board" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <TextView
         android:id="@+id/winner"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/black"
-        android:text=""
+        tools:text="Winner"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/restart" />
+        app:layout_constraintTop_toBottomOf="@+id/restart"
+        android:textSize="45dp"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
