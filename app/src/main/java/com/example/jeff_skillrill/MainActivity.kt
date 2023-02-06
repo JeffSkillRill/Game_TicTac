@@ -1,18 +1,29 @@
 package com.example.jeff_skillrill
 
+import android.media.MediaPlayer
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.ImageButton
 import android.widget.ImageView
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
-    var matrix = Array(3) { IntArray(3) { -1 } }
+    private var matrix = Array(3) { IntArray(3) { -1 } }
     var active = true
+    private var xName = ""
+    private var nameO = ""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        active_player.text
+
+        xName = intent.getStringExtra("playerX").toString()
+        nameO = intent.getStringExtra("player0").toString()
+
+        player1.text = xName
+        player2.text = nameO
+
+        active_player.text = xName
 
         img0.setOnClickListener(this)
         img1.setOnClickListener(this)
@@ -23,14 +34,15 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         img6.setOnClickListener(this)
         img7.setOnClickListener(this)
         img8.setOnClickListener(this)
-
         restart.setOnClickListener {
             restart()
         }
+
     }
 
+    var k = 0
     override fun onClick(p0: View?) {
-        val img = findViewById<ImageView>(p0!!.id)
+        val img = findViewById<ImageButton>(p0!!.id)
         val t = img.tag.toString().toInt()
         val col: Int = t / 3
         val row: Int = t % 3
@@ -39,48 +51,66 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                 img.setImageResource(R.drawable.icon_x)
                 active = false
                 matrix[col][row] = 1
-                active_player.text = "Player 0"
                 isWinner(1)
+                active_player.text = nameO
+                k++
             } else {
                 img.setImageResource(R.drawable.icon_0)
                 active = true
                 matrix[col][row] = 0
-                active_player.text = "Player X"
                 isWinner(0)
+                active_player.text = xName
+                k++
             }
+        }
+
+        if (k == 9) {
+            winner.text = "Draw"
+            finishGame()
         }
     }
 
-    fun isWinner(a: Int) {
-        var count = 0
+    var count = 0
+    private fun isWinner(a: Int) {
+        horizontalCheck(a)
+        count = 0
+
+        verticalCheck(a)
+        count = 0
+
+        fromLeftTopToRightBottomCheck(a)
+        count = 0
+
+        fromRightTopToBottomCheck(a)
+        count = 0
+
+    }
+
+    private fun horizontalCheck(a: Int) {
         for (i in 0..2) {
             for (j in 0..2) {
                 if (matrix[i][j] == a) {
                     count++
                 }
             }
-            if (count == 3) {
-                winner.text = "Winner is " + a
-                finishGame()
-                return
-            }
+            showWinnerName(a)
             count = 0
         }
-        count = 0
+    }
+
+    private fun verticalCheck(a: Int) {
         for (i in 0..2) {
             for (j in 0..2) {
                 if (matrix[j][i] == a) {
                     count++
                 }
             }
-            if (count == 3) {
-                winner.text = "Winner is " + a
-                finishGame()
-                return
-            }
+            showWinnerName(a)
             count = 0
         }
-        count = 0
+    }
+
+    private fun fromLeftTopToRightBottomCheck(a: Int) {
         for (i in 0..2) {
             for (j in 0..2) {
                 if (i == j) {
@@ -90,12 +120,10 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                 }
             }
         }
-        if (count == 3) {
-            winner.text = "Winner is " + a
-            finishGame()
-            return
-        }
-        count = 0
+        showWinnerName(a)
+    }
+
+    private fun fromRightTopToBottomCheck(a: Int) {
         for (i in 0..2) {
             for (j in 0..2) {
                 if (i + j == 2) {
@@ -105,14 +133,10 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                 }
             }
         }
-        if (count == 3) {
-            winner.text = "Winner is " + a
-            finishGame()
-            return
-        }
+        showWinnerName(a)
     }
 
-    fun finishGame() {
+    private fun finishGame() {
         img0.isEnabled = false
         img1.isEnabled = false
         img2.isEnabled = false
@@ -123,12 +147,13 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         img7.isEnabled = false
         img8.isEnabled = false
         restart.visibility = View.VISIBLE
+        k = 0
     }
 
-    fun restart() {
+    private fun restart() {
         matrix = Array(3) { IntArray(3) { -1 } }
         active = true
-        active_player.text = "Player X"
+        active_player.text = xName
 
         restart.visibility = View.INVISIBLE
 
@@ -154,9 +179,23 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         img7.setImageDrawable(null)
         img8.setImageDrawable(null)
 
+        k = 0
     }
 
+    private fun showWinnerName(a: Int) {
+        var winnerName = ""
+        winnerName = if (a == 0) nameO else xName
 
+        if (count == 3) {
+            winner.text = "Winner is $winnerName"
+            if (a == 1) {
+                player1_score.text = (player1_score.text.toString().toInt() + 1).toString()
+            } else {
+                player2_score.text = (player2_score.text.toString().toInt() + 1).toString()
+            }
+            finishGame()
+            return
+        }
 
-
+    }
 }

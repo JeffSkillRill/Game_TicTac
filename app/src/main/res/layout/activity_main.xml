@@ -10,169 +10,239 @@
 
 
 
-    <ImageView
-        android:id="@+id/playing_board"
-        android:layout_width="350dp"
-        android:layout_height="350dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/x_o_background" />
-
-
-
     <LinearLayout
-        android:layout_width="350dp"
-        android:layout_height="350dp"
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="20dp"
+        android:background="@drawable/x_o_background"
+        android:orientation="vertical"
+        android:padding="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:orientation="vertical">
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="115dp">
-            <ImageView
+
+        <LinearLayout style="@style/row">
+
+            <ImageButton
                 android:id="@+id/img0"
-                android:tag="0"
-                android:layout_width="115dp"
-                android:layout_height="115dp"
-                android:paddingTop="30dp"
-                tools:src="@drawable/icon_0"
-                />
+                style="@style/column"
+                android:paddingTop="15dp"
+                android:scaleType="fitCenter"
+                android:tag="0" />
 
-            <ImageView
+
+            <ImageButton
                 android:id="@+id/img1"
-                android:tag="1"
-                android:layout_width="115dp"
-                android:layout_height="115dp"
-                android:paddingTop="30dp"
-                tools:src="@drawable/icon_0"
-                />
+                style="@style/column"
+                android:paddingTop="15dp"
+                android:scaleType="fitCenter"
+                android:tag="1" />
 
-            <ImageView
+
+            <ImageButton
                 android:id="@+id/img2"
-                android:tag="2"
-                android:layout_width="115dp"
-                android:layout_height="115dp"
-                android:paddingTop="30dp"
-                tools:src="@drawable/icon_0"
-                />
+                style="@style/column"
+                android:paddingTop="15dp"
+                android:scaleType="fitCenter"
+                android:tag="2" />
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="115dp">
-            <ImageView
+
+        <LinearLayout style="@style/row">
+
+            <ImageButton
                 android:id="@+id/img3"
-                android:tag="3"
-                android:layout_width="115dp"
-                android:layout_height="115dp"
-                android:paddingTop="30dp"
-                tools:src="@drawable/icon_0"
-                />
+                style="@style/column"
+                android:paddingTop="15dp"
+                android:scaleType="fitCenter"
+                android:tag="3" />
 
-            <ImageView
+
+            <ImageButton
                 android:id="@+id/img4"
-                android:tag="4"
-                android:layout_width="115dp"
-                android:layout_height="115dp"
-                android:paddingTop="30dp"
-                tools:src="@drawable/icon_0"
-                />
+                style="@style/column"
+                android:paddingTop="15dp"
+                android:scaleType="fitCenter"
+                android:tag="4" />
 
-            <ImageView
+
+            <ImageButton
                 android:id="@+id/img5"
-                android:tag="5"
-                android:layout_width="115dp"
-                android:layout_height="115dp"
-                android:paddingTop="30dp"
-                tools:src="@drawable/icon_0"
-                />
+                style="@style/column"
+                android:paddingTop="15dp"
+                android:scaleType="fitCenter"
+                android:tag="5" />
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="115dp">
-            <ImageView
+
+        <LinearLayout style="@style/row">
+
+            <ImageButton
                 android:id="@+id/img6"
-                android:tag="6"
-                android:layout_width="115dp"
-                android:layout_height="115dp"
-                android:paddingTop="30dp"
-                tools:src="@drawable/icon_0"
-                />
+                style="@style/column"
+                android:paddingTop="15dp"
+                android:scaleType="fitCenter"
+                android:tag="6" />
 
-            <ImageView
+
+            <ImageButton
                 android:id="@+id/img7"
-                android:tag="7"
-                android:layout_width="115dp"
-                android:layout_height="115dp"
-                android:paddingTop="30dp"
-                tools:src="@drawable/icon_0"
-                />
+                style="@style/column"
+                android:paddingTop="15dp"
+                android:scaleType="fitCenter"
+                android:tag="7" />
 
-            <ImageView
+
+            <ImageButton
                 android:id="@+id/img8"
-                android:tag="8"
-                android:layout_width="115dp"
-                android:layout_height="115dp"
-                android:paddingTop="30dp"
-                tools:src="@drawable/icon_0"
-                />
+                style="@style/column"
+                android:paddingTop="15dp"
+                android:scaleType="fitCenter"
+                android:tag="8" />
         </LinearLayout>
-
 
 
     </LinearLayout>
+
+    <ImageView
+        android:id="@+id/restart"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:adjustViewBounds="true"
+        android:background="@drawable/circle"
+        android:scaleType="centerCrop"
+        android:src="@drawable/restart"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/button" />
 
     <TextView
         android:id="@+id/active_player"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:background="@drawable/button"
-        app:layout_constraintBottom_toTopOf="@+id/playing_board"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="Player 0"
-        android:textSize="45dp"
-        android:textColor="#6980FB"
+        android:text="Player X"
+        android:textColor="#3cdceb"
+        android:textSize="28sp"
         android:textStyle="bold"
-        android:textAlignment="center"
-        />
-
-    <TextView
-        android:id="@+id/restart"
-        android:layout_width="150dp"
-        android:layout_height="50dp"
-        android:layout_marginBottom="20dp"
-        android:layout_marginRight="20dp"
-        android:background="@drawable/button"
-        android:textAlignment="center"
-        android:textColor="#A50000"
-        android:textSize="35dp"
-        android:text="Restart"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintBottom_toBottomOf="@+id/imageView2"
+        app:layout_constraintEnd_toEndOf="@+id/imageView2"
+        app:layout_constraintStart_toStartOf="@+id/imageView2"
+        app:layout_constraintTop_toTopOf="@+id/imageView2" />
 
     <TextView
         android:id="@+id/winner"
-        android:layout_width="wrap_content"
+        style="@style/text"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:text="Winner"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="35dp"
+        android:text=""
+        android:textAlignment="center"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/restart"
-        android:textSize="45dp"
-        android:textColor="#FFFFFF"
-        android:textStyle="bold"
-        android:textAlignment="center"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+
+    <TextView
+        android:id="@+id/score"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Score"
+        android:textColor="@color/white"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/linearLayout" />
+
+    <LinearLayout
+        android:id="@+id/score_layout"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal"
+        android:paddingHorizontal="20dp"
+        android:weightSum="100"
+        app:layout_constraintTop_toBottomOf="@id/score">
+
+        <LinearLayout
+            android:id="@+id/first_score"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="49"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/player1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Harry"
+                android:textColor="@color/white"
+                android:textSize="25sp" />
+
+            <TextView
+                android:id="@+id/player1_score"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="0"
+                android:textColor="@color/white"
+                android:textSize="35sp" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginTop="18sp"
+            android:layout_marginBottom="8dp"
+            android:layout_weight="0.5"
+            android:background="@color/white" />
+
+        <LinearLayout
+            android:id="@+id/second_score"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="49"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/player2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Silli"
+                android:textColor="@color/white"
+                android:textSize="25sp" />
+
+            <TextView
+                android:id="@+id/player2_score"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="0"
+                android:textColor="@color/white"
+                android:textSize="35sp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
